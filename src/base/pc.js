@@ -12,8 +12,8 @@ class LCplayer {
     }
 
     created () {
-		// 检测黑名单, 用户是否开启了 control 选项
-        if (_.isBlack(navigator.userAgent || !this.options.controls)) {
+		// 用户是否开启了 control 选项
+        if (!this._options.controls) {
             return;
         };
 
