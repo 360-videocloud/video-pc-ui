@@ -1,0 +1,365 @@
+/* 全局样式 */
+.livecloud-player {
+	position: relative;
+	left: 0;
+	top: 0;
+	color: #fff;
+	background: #000;
+	font-family: 'PingFang SC','pfang-light','Microsoft Yahei';
+	user-select: none;
+	z-index: 100;
+	outline: none;
+}
+
+player-ui{
+	position:absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+.livecloud-player video{
+	width: 100%;
+	height: 100%;
+}
+.livecloud-player video::-webkit-media-controls {
+  display:none !important;
+}
+.livecloud-player video::-webkit-media-controls-enclosure {
+  display:none !important;
+}
+
+/*ui层 的提示， 错误信息*/
+ui-tools{
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+middle-tip{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	margin-left: -4em;
+	margin-top: -1em;
+  width: 8em;
+  height: 2em;
+  line-height: 2em;
+  background: rgba(0, 0, 0, .5);
+  border-radius: 4px;
+	color: var(--mainColor);
+	vertical-align: middle;
+	text-align: center;
+}
+
+/*ui middle 中部 ui 组件样式*/
+ui-middle{
+	position: absolute;
+	top:0;
+	bottom: 2em;
+	left: 0;
+	right: 0;
+}
+
+middle-loading,
+middle-pause,
+middle-play{
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	width: 3em;
+	height: 2.6em;
+}
+
+middle-loading{
+  background: url(../image/loading.svg);
+}
+middle-play{
+	background: url(../image/play.svg);
+}
+middle-pause{
+	background: url(../image/pause.svg);
+}
+
+/*ui middle 底部 ui 组件样式*/
+ui-bottom{
+	position:absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2em;
+	background: rgba(0, 0, 0, .5);
+}
+
+/*进度条侧样式*/
+progress-bar{
+	position: absolute;
+	top: 0;
+	left: 11em;
+	right: 6em;
+  height: 100%;
+}
+progress-bar-track{
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 20;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+progress-bar-tip{
+	position: absolute;
+	bottom: .5em;
+	left: 0;
+	z-index: 10;
+	width: 2em;
+	height: 2em;
+}
+progress-bar-all,
+progress-bar-buffer,
+progress-bar-bg{
+  position: absolute;
+  top:1em;
+  left: 0;
+  display: inline-block;
+  height: 3px;
+}
+progress-bar-bg{
+  width: 100%;
+  background: #4c4c4c;
+}
+progress-bar-buffer{
+  width: 0;
+  background: #6f6f6f;
+}
+progress-bar-all{
+	background: #de698c;
+}
+progress-bar-all:after{
+	content: '';
+	position: absolute;
+	right: 0;
+	top: -.3em;
+	display: inline-block;
+	width: .8em;
+	height: .8em;
+	border-radius: .8em;
+	background: #fff;
+}
+
+/*控制条样式*/
+controls{
+	position:absolute;
+	bottom: 0;
+	right: 1em;
+	left: 1em;
+	height: 2em;
+	line-height: 2em;
+}
+
+/*控制条左侧样式*/
+controls-left{
+	position:absolute;
+	top:0;
+	left:0;
+	height: 100%;
+}
+
+
+bottom-play-pause,
+player-volume,
+video-time,
+video-status,
+player-danma,
+player-screen{
+	position: relative;
+	display:inline-block;
+	width:1em;
+	height:1em;
+	line-height:1em;
+	vertical-align: middle;
+	text-align: center;
+	margin-right: .5em;
+}
+
+/*底部控制播放暂停*/
+bottom-play{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/splay.svg);
+}
+bottom-pause{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/spause.svg);
+}
+
+/*video 是否是直播*/
+video-status{
+	width: 2em;
+	height: 1em;
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+/*video 时间信息展示*/
+video-time{
+	width: auto;
+	font-size: 12px;
+}	
+
+/*控制条右侧样式*/
+controls-right{
+	position:absolute;
+	top:0;
+	right:0;
+	height: 2em;
+	line-height:2em;
+}
+/*音量控制*/
+volume{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+volume-mute{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/vmute.svg);
+}
+volume-low{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/vlow.svg);
+}
+volume-high{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/vhigh.svg);
+}
+volume-bar{
+	position: absolute;
+	bottom: 1em;
+	left: -.5em;
+  height: 6em;
+	width: 2em;
+	border-radius: 4px;
+	background: #fff;
+}
+volume-bar-track{
+	position: absolute;
+	top:0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+}
+volume-bar-all-wrap,
+volume-bar-buffer,
+volume-bar-bg{
+	position: absolute;
+	display: inline-block;
+	top: .6em;
+	bottom: .6em;
+	left: 1em;
+	margin-left: -2px;
+}
+volume-bar-bg{
+  width: 3px;
+  background: #4c4c4c;
+}
+volume-bar-buffer{
+  width: 0;
+  background: #6f6f6f;
+}
+volume-bar-all{
+	position: absolute;
+	display: inline-block;
+	width: 3px;
+	height: 30%;
+	background: #de698c;
+	bottom: 0;
+}
+volume-bar-all:before{
+	content: '';
+	position: absolute;
+	right: -.25em;
+	top: -.4em;
+	display: inline-block;
+	width: .6em;
+	height: .6em;
+	border-radius: .6em;
+	border: 1px solid #3c91f7;
+	background: #fff;
+}
+
+/*弹幕开关样式*/
+player-danma-on{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/danma-on.svg);
+}
+player-danma-off{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/danma-off.svg);
+}
+
+/*全屏缩放样式*/
+player-screen-enlarge{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/enlarge.svg);
+}
+player-screen-shrink{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background:url(../image/shrink.svg);
+}
+
+/*背景图的样式处理*/
+bottom-play,
+bottom-pause,
+volume-mute,
+volume-low,
+volume-high,
+middle-loading,
+middle-play,
+middle-pause,
+player-danma-on,
+player-danma-off,
+player-screen-enlarge,
+player-screen-shrink{
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/*默认不显示*/
+ui-tools,
+ui-bottom,
+bottom-pause,
+volume-mute,
+volume-high,
+volume-bar,
+middle-pause,
+middle-loading,
+player-screen-shrink,
+player-danma-off,
+video-status,
+progress-bar,
+video-time-total,
+middle-tip{
+	display: none;
+}				
