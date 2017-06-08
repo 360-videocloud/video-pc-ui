@@ -1,5 +1,8 @@
 {
   "globals": {
+    "progress": true,
+    "test": true,
+    "expect": true
   },
   "env": {
     "browser": true,
@@ -8,11 +11,16 @@
     "node": true
   },
 
-  "extends": "eslint:recommended",
+  "extends": [
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "flowtype"
+  ],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
-    "ecmaFeatures": {"jsx": true, "esversion":7}
+    "ecmaFeatures": {"esversion":7}
   },
   "ecmaFeatures": {
     "arrowFunctions": true,
@@ -76,7 +84,7 @@
     // 强制回调错误处理，必须要使用err或error。不处理则会报错
     "handle-callback-err": [2, "^(err|error)$" ],
     // 强制使用一致的缩进
-    "indent": [2, 4, { "SwitchCase": 1 }],
+    // "indent": [2, 4, { "SwitchCase": 1 }],
     // 强制在对象字面量的键和值之间使用一致的空格
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
     // 不强制使用一致的换行符风格
@@ -321,8 +329,5 @@
     "wrap-regex": 0,
     // 比较时，变量值必须放在首位
     "yoda": [2, "never"]
-  },
-  "plugins": [
-    "html"
-  ]
+  }
 }

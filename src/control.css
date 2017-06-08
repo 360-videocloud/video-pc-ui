@@ -1,0 +1,228 @@
+/* 默认隐藏 */
+vision-volume-bar,
+vision-progressbar-tip,
+vision-screen-full,
+vision-screen-small,
+vision-control-state-play,
+vision-control-state-pause{
+  display: none;
+}
+
+vision-control.full vision-screen-full,
+vision-control.small vision-screen-small,
+vision-volume.mute vision-volume-state-mute,
+vision-volume.low vision-volume-state-low,
+vision-volume.high vision-volume-state-high,
+vision-control.play vision-control-state-play,
+vision-control.pause vision-control-state-pause{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+vision-control{
+  position: absolute;
+  width: 100%;
+  height: 2em;
+  left: 0;
+  bottom: 0;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  background: #000;
+  border-top: 1px solid #e2e2e2;
+  user-select: none;
+  font-family: '';
+}
+
+/*flex 布局*/
+vision-control .flex-item{
+  order: 1;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 2em;
+  padding: .3em .1em;
+}
+
+vision-control .flex-item-free{
+  order: 1;
+  flex-grow: 1;
+}
+vision-control .flex-item-2{
+  flex-basis: 4em;
+}
+
+vision-control .flex-item-3{
+  flex-basis: 6em;
+}
+
+/*播放器状态， 播放／暂停*/
+
+vision-control-state-play{
+  background: url(image/splay.svg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+vision-control-state-pause{
+  background: url(image/spause.svg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+/*播放器控制条*/
+
+vision-progressbar{
+  position: relative;
+	cursor: pointer;
+  margin-right: .5em;
+}
+
+
+vision-progressbar-all,
+vision-progressbar-buffer,
+vision-progressbar-bg{
+  position: absolute;
+  top:1em;
+  left: 0;
+  display: inline-block;
+  height: 3px;
+}
+vision-progressbar-bg{
+  width: 100%;
+  background: #4c4c4c;
+}
+vision-progressbar-buffer{
+  width: 0;
+  background: #6f6f6f;
+}
+vision-progressbar-all{
+	background: #de698c;
+}
+vision-progressbar-all:after{
+	content: '';
+	position: absolute;
+	right: -.2em;
+	top: -.3em;
+	display: inline-block;
+	width: .8em;
+	height: .8em;
+	border-radius: .8em;
+	background: #fff;
+}
+vision-progressbar-tip{
+	position: absolute;
+	bottom: .5em;
+  top: -1.5em;
+	left: 0;
+	z-index: 10;
+	width: 3em;
+	height: 1.5em;
+  background: #fff;
+  margin-left: -1.5em;
+  line-height: 1.5em;
+  border-radius: 4px;
+  color: #000;
+  text-align: center;
+  font-size: 14px;
+}
+
+/*时间显示*/
+vision-progresstime{
+  line-height: 2.5em;
+  color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+vision-progresstime-pass,
+vision-progresstime-total{
+  display: inline-block;
+  width: 50%;
+}
+
+vision-progresstime-total{
+  margin-left: -.7em;
+}
+/*音量控制*/
+
+vision-volume{
+  cursor: pointer;
+  margin-right: 1em;
+}
+
+vision-volume-state{
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+vision-volume-state-mute{
+  background: url(image/vmute.svg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+vision-volume-state-low{
+  background: url(image/vlow.svg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+vision-volume-state-high{
+  background: url(image/vhigh.svg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+vision-volume-bar{
+  position: relative;
+  height: 100%;
+  width: 60%;
+  margin-left: .3em;
+}
+
+
+vision-volume-bar-all,
+vision-volume-bar-bg{
+  position: absolute;
+  top: .7em;
+  left: 0;
+  display: inline-block;
+  height: 3px;
+}
+vision-volume-bar-bg{
+  width: 100%;
+  background: #4c4c4c;
+}
+vision-volume-bar-all{
+	background: #de698c;
+}
+vision-volume-bar-all:after{
+	content: '';
+	position: absolute;
+	right: -.2em;
+	top: -.3em;
+	display: inline-block;
+	width: .8em;
+	height: .8em;
+	border-radius: .8em;
+	background: #fff;
+}
+
+/*全屏*/
+
+vision-screen-small{
+  background: url(image/shrink.svg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+vision-screen-full{
+  background: url(image/enlarge.svg);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}

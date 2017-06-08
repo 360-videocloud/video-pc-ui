@@ -1,53 +1,88 @@
-# 播放器 ui
+# 针对 pc 端 h5 播放器的 ui
 
-## 初始化
+本文首先对市场上主流播放器的 ui 组件进行对比分析，找出大多数播放器最常用的 ui 组件，最为官方组件。
 
-```
-let options = {
+## 对比分析
+
+### 数据表格
+
+| name | components | context-menu |
+| ---- | :--------: | :----------: |
+| bilibili-vod | bottom-play-pause, middle-play-pause, loading, progress-bar, progress-time, mute, volume-bar(hover, vertical), video-quality, danma-on-off, cycle, wide-screen, full-screen | video-console-info, playbackRate, player-mirror, copyright |
+| bilibili-live | bottom-play-pause, loading, live-duration, mute, volume-bar(horizontal), video-quality, player-change(h5, flash), cdn-change, refresh, danma-setting, danma-on-off, wide-screen, full-screen | danma-piece-opt(del, report, copy, shield), cdn-change, video-console-info, copyright |
+| youtube-vod | bottom-play-pause, middle-play-pause, loading,next-video, mute, volume-bar(horizontal), progress-bar(up-line),  progress-time, subtitle, setting(quality, playbackRate, autoplay), wide-screen, full-screen | |
+| youtube-live | bottom-play-pause, middle-play-pause, loading, mute, volume-bar(hove, horizontal), subtitle, setting(quality, playbackRate, autoplay), wide-screen, full-screen | |
+| iqiyi-vod | bottom-play-pause, next-video, mute, volume-bar(vertical), progress-time, wide-screen, full-screen | |
+| youku-live | bottom-play-pause, middle-play-pause, loading, refresh, mute, volume-bar(horizontal), setting, wide-screen, full-screen | |
+| youku-vod | bottom-play-pause, middle-play-pause, loading, next-video, progress-time, danma, progress-bar(up-line), mute, volume-bar(horizontal), quality, setting, full-screen | |
+
+### 结论
+
+1. 实现方式是， 自定义的配置表， 给组件设置 true/false 来控制组件的显示与否
+
+```javascript
+
+let defaultComponents = {
+  centerPlay: true,
+  // ...
 }
 
-let player = new LCplayer(id, options);
 ```
 
-## 目前有的组件
-1. 播放
-2. 暂停
-3. 声音
-4. 全屏
-5. 进度
-6. 直播状态
-7. 弹幕开关
+1. 最基本组件（精简模式）
 
-## 组件的回调
-1. 弹幕开关
+* bottom-play-pause
+* middle-play-pause
+* loading
+* mute
+* volume-bar(vertical)
+* progress-bar(inline-line)
+* progress-time
+* full-screen
+
+1. 官方扩展组件
+
+1. 用户自定义组件
+
+## 组件类型及设计
+
+### 主要定义
+
+1. 通过切换父类来控制子组件的显示
+
+```html
+<style>
+  .play-button,
+  .pause-button{
+    display: none;
+  }
+  .state-play .play-button{
+    display: inline-block;
+  }
+  .state-pause .pause-button{
+    display: inline-block;
+  }
+</style>
+
+<div class="h5-videoplayer state-play">
+  <span class="play-button"></span>
+  <span class="pause-button"></span>
+</div>
+
 ```
 
-player.on('danmachange', function() {});
+## 重点／难点
 
-```
-2. 视频相关回掉
-```
+### Component Factory
 
-video.addEventListener('play', function() {});
-video.addEventListener('pause', function() {});
-...
+所有 ui 组件均是由，这个方法构造出来的，不仅内部使用构造官方组件， 也可以暴漏给用户来创造用户自定义组件。(参考 videojs 的实现方式)
 
-```
+### 兼容性检测／总结／hack
 
-## 17.5.4 修改
+### controlbar 布局设置
 
-### pc ui
-1. 当鼠标仔进度条上， 音量条上时， 不隐藏bottom volumebar //
-2. 页面内的 hover 用 js 来控制， 非 css //
-3. ie 9 兼容， ff， safari 兼容
-4. 加弹幕开关
+## videojs 学习
 
-### 接下来要做的事情
-1. control 模块化， 模块宽度自动化
-2. 完善 defaultOption
+### 制造组件的工厂方法
 
-
-
-
-
-
+### 每个组件的实现方式（逻辑）
